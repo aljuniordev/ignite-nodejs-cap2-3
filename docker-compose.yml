@@ -6,13 +6,18 @@ services:
         container_name: database
         restart: always
         ports:
-            - 5432:5432
+            - 5433:5433
         environment:
-            - POSTGRES_USER='docker'
-            - POSTGRES_PASSWORD='docker'
-            - POSTGRES_DB='ignitedb"
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=
+            - POSTGRES_DB=ignitedb
+            - PGPORT=5433
+            - POSTGRES_HOST_AUTH_METHOD=trust
+        deploy:
+            placement:
+                constraints: [node.role == manager]
         volumes:
-            - ./postgres-data:/var/lib/postgresql/data
+            - pgdata:/data/postgres
     app:    
         build: .
         container_name: ignite

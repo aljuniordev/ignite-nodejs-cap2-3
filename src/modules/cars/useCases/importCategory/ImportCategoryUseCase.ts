@@ -3,6 +3,7 @@ import csvParse from 'csv-parse';
 
 import {ICategoriesRepository} from '../../repositories/ICategoriesRepository';
 import { inject, injectable } from 'tsyringe';
+import { AppError } from '../../../../errors/AppError';
 
 interface IImportCategory {
     name: string;
@@ -72,6 +73,6 @@ class ImportCategoryUseCase {
 
 export {ImportCategoryUseCase}
 function Injectable() {
-    throw new Error('Function not implemented.');
+    throw new AppError('Function not implemented.');
 }
 

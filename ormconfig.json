@@ -1,9 +1,9 @@
 {
     "type": "postgres",
-    "port": 5432,
+    "port": 5433,
     "host": "localhost",
-    "username": "docker",
-    "password": "docker",
+    "username": "postgres",
+    "password": "postgres",
     "database": "ignitedb",
     "timezone": "America/Sao_Paulo",
     "migrations": ["./src/database/migrations/*.ts"],

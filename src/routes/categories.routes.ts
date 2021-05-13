@@ -4,18 +4,18 @@ import multer from 'multer';
 import { CreateCategoryController } from '../modules/cars/useCases/createCategory/CreateCategoryController';
 import { ListCategoriesController } from '../modules/cars/useCases/listCategories/ListCategoriesController';
 import { ImportCategoryController } from '../modules/cars/useCases/importCategory/ImportCategoryController';
+import uploadConfig from "../config/upload";
+import { ensureAuthenticated } from '../middlewares/ensureAuthenticated';
 
 const categoriesRoutes = Router();
 
-const upload = multer({dest: './tmp'});
+categoriesRoutes.use(ensureAuthenticated);
 
-const createCategoryController = new CreateCategoryController();
-categoriesRoutes.post("/", createCategoryController.handle);
+categoriesRoutes.post("/", new CreateCategoryController().handle);
 
-const listCategoriesController = new ListCategoriesController();
-categoriesRoutes.get("/", listCategoriesController.handle);
+categoriesRoutes.get("/",  new ListCategoriesController().handle);
 
-const importCategoryController = new ImportCategoryController();
-categoriesRoutes.post("/import", upload.single("file"), importCategoryController.handle);
+const uploadAvatar = multer(uploadConfig.upload("./tmp"));
+categoriesRoutes.post("/import", ensureAuthenticated, uploadAvatar.single("avatar"), new ImportCategoryController().handle);
 
 export { categoriesRoutes };
