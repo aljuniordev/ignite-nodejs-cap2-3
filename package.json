@@ -1,14 +1,14 @@
 {
-  "name": "ignite-nodejs-cap2",
+  "name": "ignite-nodejs-cap2-3-4",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "author": "",
+  "license": "ISC",
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn --poll --interval 1000 src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "csv-parse": "^4.15.3",
