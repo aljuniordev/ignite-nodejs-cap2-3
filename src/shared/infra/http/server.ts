@@ -1,21 +1,21 @@
 import "reflect-metadata";
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors";
-import swaggerUi from 'swagger-ui-express';
+import swaggerUi from "swagger-ui-express";
+import swaggerFile from "../../../swagger.json";
 
-import '../typeorm';
-import '../../container';
+import "../typeorm";
+import "../../container";
 
-import {router} from './routes';
-import swaggerFile from '../../../swagger.json';
-import { AppError } from "../../errors/AppError";
+import AppError from "@shared/errors/AppError";
+import {router} from "./routes";
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended:true}));
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(router);
 
@@ -32,4 +32,4 @@ app.use((err: Error, request: Request, response: Response, next: NextFunction) =
     })
 });
 
-app.listen(3333, () => console.log("### Server is running!"));
+app.listen(3333, () => console.log("##### It's Alive! It's Alive! #####"));

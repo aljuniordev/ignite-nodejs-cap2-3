@@ -1,6 +1,6 @@
-import {Request, Response} from 'express';
-import { container } from 'tsyringe';
-import { ListSpecificationsUseCase } from './ListSpecificationsUseCase';
+import {Request, Response} from "express";
+import { container } from "tsyringe";
+import { ListSpecificationsUseCase } from "./ListSpecificationsUseCase";
 
 class ListSpecificationsController {
 
