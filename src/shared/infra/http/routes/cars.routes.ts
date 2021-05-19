@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { CreateCarController } from "../../../../modules/cars/useCases/createCar/CreateCarController";
 import { ensureAdmin } from "../middlewares/ensureAdmin";
-import { ListCarController } from "../../../../modules/cars/useCases/listCar/listCarController";
+import { CreateCarController } from "@modules/cars/useCases/createCar/CreateCarController";
+import { ListCarController } from "@modules/cars/useCases/listCar/ListCarController";
 
 const carsRoutes = Router();
 

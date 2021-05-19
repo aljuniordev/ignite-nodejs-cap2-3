@@ -3,7 +3,7 @@ import csvParse from "csv-parse";
 
 import { inject, injectable } from "tsyringe";
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
-import AppError from "../../../../shared/errors/AppError";
+import AppError from "@errors/AppError";
 
 interface IImportCategory {
     name: string;

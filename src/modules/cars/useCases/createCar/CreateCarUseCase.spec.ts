@@ -1,4 +1,4 @@
-import AppError from "../../../../shared/errors/AppError";
+import AppError from "@errors/AppError";
 import { CarsRepositoryInMemory } from "../../repositories/in-memory/CarsRepositoryInMemory";
 import { CreateCarUseCase } from "./CreateCarUseCase";
 
