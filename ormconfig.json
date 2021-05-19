@@ -1,13 +1,12 @@
 {
     "type": "postgres",
-    "port": 5433,
     "host": "localhost",
+    "port": 5433,
     "username": "postgres",
     "password": "postgres",
     "database": "ignitedb",
-    "timezone": "America/Sao_Paulo",
-    "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
     "entities": ["./src/modules/**/entities/*.ts"],
+    "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
     "cli": {
       "migrationsDir": "./src/shared/infra/typeorm/migrations"
     }
