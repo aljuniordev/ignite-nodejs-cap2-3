@@ -29,20 +29,20 @@ class CarsRepository implements ICarsRepository {
     async find(brand?: string, category_id?: string, name?:
         string, available?: boolean): Promise<Car[]> {
         const carsQuery = await this.repository
-            .createQueryBuilder("c")
-            .where("c.id <> null");
+            .createQueryBuilder("cars")
+            .where("id is not null");
 
         if (available) {
-            carsQuery.andWhere("c.available = :av", { av: available });
+            carsQuery.andWhere("available = :av", { av: available });
         }
         if (brand) {
-            carsQuery.andWhere("c.brand = :br", { br: brand });
+            carsQuery.andWhere("brand = :br", { br: brand });
         }
         if (category_id) {
-            carsQuery.andWhere("c.category_id = :c_id", { c_id: category_id });
+            carsQuery.andWhere("category_id = :c_id", { c_id: category_id });
         }
         if (name) {
-            carsQuery.andWhere("c.name = :na", { na: name });
+            carsQuery.andWhere("name = :na", { na: name });
         }
 
         return await carsQuery.getMany();
