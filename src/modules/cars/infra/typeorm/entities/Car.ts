@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryColumn, Unique } from "typeorm";
 import {v4 as uuidv4} from "uuid";
 import { Category } from "./Category";
 import { Specification } from "./Specification";
@@ -12,7 +12,7 @@ class Car {
     @Column()
     name: string;
     
-    @Column()
+    @Column({unique: true})
     description:string;
     
     @Column()

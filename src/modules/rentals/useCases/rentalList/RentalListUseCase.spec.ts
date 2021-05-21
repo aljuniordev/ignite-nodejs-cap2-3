@@ -1,0 +1,7 @@
+
+
+describe("rentalList tests", () => {
+
+
+    
+});

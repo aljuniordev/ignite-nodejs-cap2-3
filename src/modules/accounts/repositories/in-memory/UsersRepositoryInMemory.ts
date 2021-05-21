@@ -7,7 +7,7 @@ class UsersRepositoryInMemory implements IUsersRepository {
 
     users: User[] = [];
 
-    async create({ name, password, email, driver_license }: ICreateUserDTO): Promise<void> {
+    async create({ name, password, email, driver_license }: ICreateUserDTO): Promise<User> {
         const newUser = new User();
 
         Object.assign(newUser, { name, 
@@ -16,6 +16,8 @@ class UsersRepositoryInMemory implements IUsersRepository {
             driver_license });
         
         this.users.push(newUser);
+
+        return newUser;
     }
 
     async findByEmail(email: string): Promise<User> {

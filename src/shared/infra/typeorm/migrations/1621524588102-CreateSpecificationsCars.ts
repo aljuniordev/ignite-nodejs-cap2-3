@@ -7,10 +7,7 @@ export class CreateSpecificationsCars1621524588102 implements MigrationInterface
             new Table({
                 name: "specifications_cars",
                 columns: [
-                    {
-                        name: "car_id",
-                        type: "uuid"
-                    },
+                    { name: "car_id", type: "uuid" },
                     {
                         name: "specification_id",
                         type: "uuid"

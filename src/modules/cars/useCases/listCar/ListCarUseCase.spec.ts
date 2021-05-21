@@ -23,7 +23,11 @@ describe("List Cars", () => {
             category_id: "202cbbb0-0f03-4569-b7b7-740252de6e71"
         })
 
-        const cars = await listCarsUseCase.execute();
+        const cars = await listCarsUseCase.execute({
+            brand: newCar.brand, 
+            category_id: newCar.category_id, 
+            name: newCar.name
+        });
 
         expect(cars).toEqual([newCar]);
     })
