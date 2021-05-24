@@ -6,6 +6,7 @@ export default async(host = "database"): Promise<Connection> => {
     return createConnection(
         Object.assign(defaultOptions, {
             host,
+            database: process.env.NODE_ENV === "test" ? "ignitedb_test" : defaultOptions.database
         })
     )
 }

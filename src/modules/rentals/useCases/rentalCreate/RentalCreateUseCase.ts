@@ -1,5 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import AppError from "@shared/errors/AppError";
+import DayjsDateProvider from "@shared/container/providers/DateProvider/implementations/DayjsDateProvider";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
@@ -43,7 +44,7 @@ class CreateRentalUseCase {
             throw new AppError("User not found with that ID");
         }
 
-        let expected_return_date = new Date();
+        const expected_return_date = new DayjsDateProvider().dateNow();
         expected_return_date.setDate(expected_return_date.getDate() + 30);
 
         const newRental = await this.rentalsRepository.create({
