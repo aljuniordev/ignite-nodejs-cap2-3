@@ -1,6 +1,7 @@
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { ICreateRentalDTO } from "@modules/rentals/dtos/ICreateRentalDTO";
 import { IRentalsRepository } from "../IRentalsRepository";
+import AppError from "@shared/errors/AppError";
 
 
 class RentalsRepositoryInMemory implements IRentalsRepository {
@@ -20,19 +21,19 @@ class RentalsRepositoryInMemory implements IRentalsRepository {
     }
 
     findByCar(car_id: string): Promise<Rental[]> {
-        throw new Error("Method not implemented.");
+        throw new AppError("Method not implemented.");
     }
 
     findOpenByCar(car_id: string): Promise<Rental[]> {
-        throw new Error("Method not implemented.");
+        throw new AppError("Method not implemented.");
     }
     
     findByUser(user_id: string): Promise<Rental[]> {
-        throw new Error("Method not implemented.");
+        throw new AppError("Method not implemented.");
     }
     
     findByCarAndUser(car_id: string, user_id: string): Promise<Rental[]> {
-        throw new Error("Method not implemented.");
+        throw new AppError("Method not implemented.");
     }
 
 }

@@ -1,9 +1,9 @@
 import { hash } from "bcryptjs";
 import AppError from "@shared/errors/AppError";
-import { CreateRentalUseCase } from "./rentalCreateUseCase";
 import { UsersRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UsersRepositoryInMemory";
 import { CarsRepositoryInMemory } from "@modules/cars/repositories/in-memory/CarsRepositoryInMemory";
 import { RentalsRepositoryInMemory } from "@modules/rentals/repositories/inMemory/RentalsRepositoryInMemory";
+import { CreateRentalUseCase } from "./RentalCreateUseCase";
 
 let rentalsInMemory: RentalsRepositoryInMemory;
 let carsRepository: CarsRepositoryInMemory;
